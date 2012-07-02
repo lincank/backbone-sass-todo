@@ -1,0 +1,226 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+html {
+  background-color: #eeeeee; }
+
+li {
+  list-style: none; }
+
+#todo-app {
+  width: 480px;
+  margin: 0 auto;
+  background-color: white;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 6px 6px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 6px 6px 0;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 6px 6px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 6px 0;
+  -khtml-box-shadow: rgba(0, 0, 0, 0.2) 0 6px 6px 0;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -o-border-bottom-left-radius: 5px;
+  -ms-border-bottom-left-radius: 5px;
+  -khtml-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -o-border-bottom-right-radius: 5px;
+  -ms-border-bottom-right-radius: 5px;
+  -khtml-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 40px 25px 15px 25px; }
+
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  font-weight: bold;
+  text-align: center;
+  padding: 0px 0px 40px 0px; }
+
+#create-todo {
+  width: 100%;
+  margin-bottom: 5px; }
+
+#todo-list li {
+  font-size: 25px;
+  line-height: 50px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #cccccc; }
+  #todo-list li .item-show {
+    display: block; }
+  #todo-list li .item-edit {
+    display: none; }
+  #todo-list li.editing {
+    padding: 0;
+    border-bottom: 0; }
+    #todo-list li.editing .item-show {
+      display: none; }
+    #todo-list li.editing .item-edit {
+      display: block; }
+  #todo-list li:hover .todo-destory a {
+    display: block; }
+  #todo-list li:hover .ui-tooltip-top {
+    display: inline-block; }
+
+.todo-destory a {
+  display: none;
+  text-decoration: none;
+  color: #555555;
+  font-size: 12px;
+  background-color: #dddddd;
+  width: 20px;
+  float: right;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -o-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -khtml-border-radius: 18px; }
+  .todo-destory a:hover {
+    color: #111111;
+    background-color: #aaaaaa; }
+
+.item-edit input,
+#create-todo input {
+  width: 460px;
+  line-height: 30px;
+  border: 1px solid #999999;
+  padding: 10px;
+  font-size: 25px;
+  font-family: inherit;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 6px 2px;
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 6px 2px;
+  -o-box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 6px 2px;
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 6px 2px;
+  -khtml-box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 6px 2px; }
+
+#todo-status {
+  margin-top: 10px;
+  background-color: #dddddd;
+  line-height: 40px;
+  font-size: 18px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -o-border-bottom-left-radius: 5px;
+  -ms-border-bottom-left-radius: 5px;
+  -khtml-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -o-border-bottom-right-radius: 5px;
+  -ms-border-bottom-right-radius: 5px;
+  -khtml-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
+  #todo-status .todo-count {
+    padding-left: 10px; }
+    #todo-status .todo-count .number {
+      font-weight: bold; }
+
+.item-done {
+  text-decoration: line-through; }
+
+.clear-done {
+  float: right; }
+  .clear-done a {
+    font-size: 14px;
+    display: block;
+    text-decoration: none;
+    color: #555555;
+    line-height: 25px;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 0 15px 1px;
+    margin-top: 7px;
+    margin-right: 10px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -o-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+    -o-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+    -khtml-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0; }
+    .clear-done a:hover {
+      background-color: rgba(0, 0, 0, 0.25); }
+
+.ui-tooltip-top {
+  color: #ffffff;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  font-size: 12px;
+  font-family: arial;
+  position: relative;
+  padding: 5px 10px;
+  text-align: center;
+  text-shadow: 0 -1px 1px #111111;
+  z-index: 999;
+  width: 170px;
+  left: 50%;
+  margin-left: -85px;
+  background-image: -moz-linear-gradient(top, #555555, #222222);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555555), color-stop(1, #222222));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#555555,EndColorStr=#222222);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#555555,EndColorStr=#222222);
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  -moz-box-shadow: 0 1px 2px black;
+  -webkit-box-shadow: 0 1px 2px black;
+  -o-box-shadow: 0 1px 2px black;
+  box-shadow: 0 1px 2px black;
+  -khtml-box-shadow: 0 1px 2px black;
+  -moz-box-shadow: inset 0 0 0 1px #222222;
+  -webkit-box-shadow: inset 0 0 0 1px #222222;
+  -o-box-shadow: inset 0 0 0 1px #222222;
+  box-shadow: inset 0 0 0 1px #222222;
+  -khtml-box-shadow: inset 0 0 0 1px #222222;
+  -moz-box-shadow: inset 0 2px #666666;
+  -webkit-box-shadow: inset 0 2px #666666;
+  -o-box-shadow: inset 0 2px #666666;
+  box-shadow: inset 0 2px #666666;
+  -khtml-box-shadow: inset 0 2px #666666;
+  -moz-box-shadow: inset 0 -2px 2px #444444;
+  -webkit-box-shadow: inset 0 -2px 2px #444444;
+  -o-box-shadow: inset 0 -2px 2px #444444;
+  box-shadow: inset 0 -2px 2px #444444;
+  -khtml-box-shadow: inset 0 -2px 2px #444444; }
+  .ui-tooltip-top:after {
+    content: "\25B8";
+    display: block;
+    font-size: 20px;
+    line-height: 0px;
+    position: absolute;
+    color: #4f4f4f;
+    bottom: auto;
+    left: -2px;
+    top: 0px;
+    text-align: center;
+    text-shadow: none;
+    width: 100%;
+    -o-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -khtml-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg); }

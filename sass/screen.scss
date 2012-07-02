@@ -1,0 +1,206 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/support";
+@import "compass/css3";
+
+html {
+    background-color: #eeeeee;
+}
+
+a {
+    text-decoration: none;
+}
+
+#todo-app {
+    width: 480px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+
+    @include box-shadow(rgba(0, 0, 0, 0.2) 0 6px 6px 0);
+    @include border-bottom-radius();
+
+    .content {
+        margin: 0 20px 10px 20px;
+
+        #todo-collection {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.title {
+    font: {
+        family: helvetica;
+        size: 3em;
+    }
+
+    text-align: center;
+    padding: 40px 20px 30px 20px;
+}
+
+#create-todo {
+    margin-bottom: 10px;
+    position: relative;  // key for ui-tooltip-top to work
+
+    span {
+        position: absolute;
+        z-index: 999;
+        width: 170px;
+        left: 50%;
+        margin-left: -85px;
+
+    }
+}
+
+#create-todo input,
+.item-edit input {
+    width: 420px;
+    font-size: 25px;
+    line-height: 1.5em;
+    border: 1px solid #999999;
+    padding: 0 10px;
+
+    @include box-shadow(rgba(0, 0, 0, 0.2) 0 2px 2px 0 inset);
+}
+
+#todo-list li {
+    font-size: 25px;
+    line-height: 2em;
+    border-bottom: 1px solid #cccccc;
+
+    //show content, hide input when in display mode
+    .item-show {
+        display: block;
+    }
+
+    .item-edit {
+        display: none;
+    }
+
+    //show input, hide content when in editing mode
+    &.editing {
+        padding: 0;
+        border-bottom: 0;
+
+        .item-show {
+            display: none;
+        }
+
+        .item-edit {
+            display: block;
+        }
+    }
+
+    //display destroy button when this item is hovered
+    &:hover {
+        .todo-destroy a {
+            display: block;
+        }
+    }
+}
+
+.todo-destroy a {
+    display: none;
+    color: #555555;
+    background-color: #dddddd;
+    font-size: 12px;
+    font-family: helvetica;
+    width: 2em;
+    float: right;
+    text-align: center;
+    line-height: 2em;
+    margin-top: 20px;
+    margin-right: 20px;
+
+    @include border-radius(18px);
+
+    &:hover {
+        color: #111111;
+        background-color: #aaaaaa;
+    }
+}
+
+// means done
+.item-done {
+    text-decoration: line-through;
+    color: #777777;
+}
+
+#todo-status {
+    background-color: #fafad2;
+    line-height: 40px;
+    font-size: 18px;
+
+    @include border-bottom-radius();
+
+    .todo-count {
+        padding-left: 10px;
+
+        .number {
+            font-weight: bold;
+            color: #b8860b;
+        }
+    }
+
+}
+
+.clear-done {
+    float: right;
+
+    a {
+        font-size: 14px;
+        display: block;
+        color: #555555;
+        line-height: 25px;
+        background-color: rgba(0, 0, 0, 0.15);
+        padding: 0 15px 1px;
+        margin: 7px 10px;
+
+        @include border-radius(12px);
+        @include box-shadow(rgba(0, 0, 0, 0.2) 0 -1px 0 0);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+    }
+
+
+}
+
+.ui-tooltip-top {
+    color: #ffffff;
+    font-size: 12px;
+    font-family: arial;
+    padding: 5px 10px;
+    text-align: center;
+    top: 110%;
+
+    @include inline-block;
+    @include text-shadow(0 -1px 1px #111111);
+    @include background-image(linear-gradient(top,#555555,#222222));
+    @include box-shadow(0 1px 2px #000000, inset 0 0 0 1px #222222, inset 0 2px #666666, inset 0 -2px 2px #444444);
+    @include border-radius;
+
+    //for the arrow sign
+    &:after {
+        content: "\25B8";
+        display: block;
+        font-size: 20px;
+        line-height: 0;
+        color: #4f4f4f;
+        position: absolute;
+        left: -2px;
+        bottom: auto;
+        top: 0;
+        text-align: center;
+        text-shadow: none;
+        width: 100%;
+
+        @include rotate(-90deg);
+    }
+}
